@@ -115,6 +115,11 @@ export default {
     color: white;
 }
 
+.game-card a {
+    display: block;
+    height: 100%;
+}
+
 .wrapper {
     margin: 0 auto;
     width: 70%;
