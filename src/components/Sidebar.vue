@@ -7,7 +7,7 @@
                 </router-link>
             </li>
             <li>
-                <router-link to="/jeux">
+                <router-link to="/games">
                     <img class="icon" src="./../assets/icons/icons8-apple-arcade-96.png" />Jeux
                 </router-link>
             </li>
@@ -65,7 +65,7 @@ li a {
     align-items: center;
     justify-content: center;
     width: 115px;
-    height: 100px;
+    height: 90px;
     color: #e75c34;
     border-radius: 10px;
     transition: all 0.2s;
@@ -76,8 +76,8 @@ li a:hover {
 }
 
 li a img {
-    height: 50px;
-    width: 50px;
+    height: 40px;
+    width: 40px;
     margin-bottom: 10px;
 }
 
