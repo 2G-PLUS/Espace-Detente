@@ -1,7 +1,7 @@
 <template>
     <div id="app">
         <header class="header-container">
-            <h1>Mon Application</h1>
+            <img src="./assets/2g.png" height="75" >
         </header>
         <main>
             <div class="content">
@@ -35,7 +35,7 @@ body {
 }
 
 header {
-    background-color: #f0f0f0;
+    background-color: #2b2d42;
     padding: 20px;
     text-align: center;
 }
