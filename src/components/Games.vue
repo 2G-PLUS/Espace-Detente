@@ -23,13 +23,13 @@ export default {
         }
     },
     created() {
-        // axios.get("/api/games").then((response) => {
-        //     this.games = response.data
-        //     this.games = [{
-        //         "image": "https://holarse.de/sites/default/files/2014-08-23-1294/2048_1.png",
-        //         "title": "2048"
-        //     }]
-        // })
+        axios.get("/api/games").then((response) => {
+            this.games = response.data
+            this.games = [{
+                "image": "https://holarse.de/sites/default/files/2014-08-23-1294/2048_1.png",
+                "title": "2048"
+            }]
+        })
         this.games = [
             {
                 "id": 1,
