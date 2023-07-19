@@ -11,19 +11,22 @@
 </template>
 
 <script>
-// import axios from "axios";
+import axios from "axios";
 
 export default {
     name: 'GameDetailsComponent',
     data() {
         return {
             game: null,
+            apiUrl: 'http://45.147.99.71:8000/api'
         }
     },
     created() {
+        axios.defaults.headers.post['Access-Control-Allow-Origin'] = '*';
+
         console.log(this.$route.params.id);
         this.game = { "id": 1, link: "https://play2048.co/"}
-        axios.get("/api/games").then((response) => {
+        axios.get(`${this.apiUrl}/games`).then((response) => {
             this.games = response.data
             this.games = [{
                 "image": "https://holarse.de/sites/default/files/2014-08-23-1294/2048_1.png",

@@ -1,7 +1,7 @@
 <template>
     <div class="wrapper">
         <div class="games">
-            
+
             <div class="game-card" v-for="game in games" v-bind:key="game.id">
                 <router-link :to="`/gameDetails/${game.id}`">
                     <img v-bind:src="game.image" height="150" width="150">
@@ -13,17 +13,21 @@
 </template>
 
 <script>
-// import axios from "axios";
+import axios from "axios";
 
 export default {
+
     name: 'GamesComponent',
     data() {
         return {
             games: null,
+            apiUrl: 'http://45.147.99.71:8000/api'
         }
     },
     created() {
-        axios.get("/api/games").then((response) => {
+        axios.defaults.headers.post['Access-Control-Allow-Origin'] = '*';
+
+        axios.get(`${this.apiUrl}/games`).then((response) => {
             this.games = response.data
             this.games = [{
                 "image": "https://holarse.de/sites/default/files/2014-08-23-1294/2048_1.png",
