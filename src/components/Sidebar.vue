@@ -3,18 +3,18 @@
         <ul>
             <li>
                 <router-link to="/streaming">
-                    <i class="fas fa-play-circle"></i> Streaming
+                    <img class="icon" src="./../assets/icons/icons8-bobine-de-film-96.png" />Streaming
                 </router-link>
             </li>
             <li>
-                <router-link to="/jeux">
-                    <i class="fas fa-gamepad"></i> Jeux
+                <router-link to="/games">
+                    <img class="icon" src="./../assets/icons/icons8-apple-arcade-96.png" />Jeux
                 </router-link>
             </li>
+            <li>
+                <a href="#" @click="logout"><img class="icon" src="./../assets/icons/icons8-fermer-96.png" />Déconnexion</a>
+            </li>
         </ul>
-        <div class="logout-container">
-            <button class="logout-button" @click="logout">Se déconnecter</button>
-        </div>
     </div>
 </template>
 
@@ -39,21 +39,52 @@ export default {
 
 <style>
 .sidebar-menu {
-    width: 200px;
-    background-color: #f8f8f8;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #2b2d42;
     padding: 20px;
-    display: flex;
-    flex-direction: column;
 }
 
 ul {
     list-style: none;
     padding: 0;
     margin: 0;
+    display: flex;
+    justify-content: space-evenly;
 }
 
 li {
-    padding: 10px;
+    text-align: center;
+}
+
+li a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 115px;
+    height: 90px;
+    color: #e75c34;
+    border-radius: 10px;
+    transition: all 0.2s;
+}
+
+li a:hover {
+    background-color: rgba(231, 92, 52, 0.2);
+}
+
+li a img {
+    height: 40px;
+    width: 40px;
+    margin-bottom: 10px;
+}
+
+a {
+    text-decoration: none;
+    
+    font-weight: bold;
 }
 
 .router-link-active {
@@ -61,7 +92,8 @@ li {
 }
 
 .fa-play-circle,
-.fa-gamepad {
+.fa-gamepad,
+.fa-power {
     margin-right: 10px;
 }
 

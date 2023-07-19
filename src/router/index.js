@@ -1,5 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import Home from '../components/Home.vue';
+import Games from '../components/Games.vue';
+import GameDetails from '../components/GameDetails.vue';
 import Profile from '../components/Profile.vue';
 import LoginForm from "@/components/LoginForm.vue";
 import AuthProvider from '../services/AuthProvider';
@@ -31,6 +33,19 @@ const router = createRouter({
             meta: {
                 requiresAuth: true,
             },
+        },
+        {
+            path: "/games",
+            name: "Games",
+            component: Games,
+            meta: {
+                requiresAuth: true,
+            }
+        },
+        { 
+            path: "/gameDetails/:id",
+            name: "GameDetails",
+            component: GameDetails
         },
         {
             path: '/login',

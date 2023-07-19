@@ -23,7 +23,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 100vw;
+    height: calc(100vh - var(--header-height) - var(--footer-height));
 }
 
 
@@ -72,17 +72,16 @@ export default {
     },
     methods: {
         login() {
-            AuthService.login(this.username, this.password)
-                .then(() => {
-                    if (AuthProvider.isAuthenticated()) {
-                        this.$router.push("/");
-                    } else {
-                        this.errorMessage = "Identifiants invalides";
-                    }
-                })
-                .catch((error) => {
-                    this.errorMessage = error.message;
-                });
+            AuthService.login(this.username, this.password).then((r) => {
+                console.log(r)
+                if (AuthProvider.isAuthenticated()) {
+                    this.$router.push({ name: "Games"});
+                } else {
+                    this.errorMessage = "Identifiants invalides";
+                }
+            }).catch((e) => {
+                this.errorMessage = e;
+            });
         },
     },
 };

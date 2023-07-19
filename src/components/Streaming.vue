@@ -18,9 +18,11 @@ export default {
 
 <style>
 .streaming {
+    height: calc(100vh - var(--header-height) - var(--footer-height));
     flex: 1;
     display: flex;
     flex-direction: column;
+    overflow: hidden;
 }
 
 .iframe-container {
