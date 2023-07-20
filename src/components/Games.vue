@@ -3,10 +3,13 @@
         <div class="games">
 
             <div class="game-card" v-for="game in games" v-bind:key="game.id">
-                <router-link :to="`/gameDetails/${game.id}`">
+                <div v-on:click="redirectUrl(game.id)">
                     <img v-bind:src="game.image" height="150" width="150">
                     <h3>{{ game.name }}</h3>
                     <p class="game-description">{{game.description}}</p>
+                </div>
+                <router-link :to="`/gameDetails/${game.id}`">
+
                 </router-link>
             </div>
         </div>
@@ -31,61 +34,10 @@ export default {
         axios.get(`${this.apiUrl}/games`).then((response) => {
             this.games = response.data
         })
-        this.games = [
-            {
-                "id": 1,
-                "image": "https://holarse.de/sites/default/files/2014-08-23-1294/2048_1.png",
-                "title": "2048"
-            },
-            {
-                "image": "https://holarse.de/sites/default/files/2014-08-23-1294/2048_1.png",
-                "title": "2048"
-            },
-            {
-                "image": "https://holarse.de/sites/default/files/2014-08-23-1294/2048_1.png",
-                "title": "2048"
-            },
-            {
-                "image": "https://holarse.de/sites/default/files/2014-08-23-1294/2048_1.png",
-                "title": "2048"
-            },
-            {
-                "image": "https://holarse.de/sites/default/files/2014-08-23-1294/2048_1.png",
-                "title": "2048"
-            },
-            {
-                "image": "https://holarse.de/sites/default/files/2014-08-23-1294/2048_1.png",
-                "title": "2048"
-            },
-            {
-                "image": "https://holarse.de/sites/default/files/2014-08-23-1294/2048_1.png",
-                "title": "2048"
-            },
-            {
-                "image": "https://holarse.de/sites/default/files/2014-08-23-1294/2048_1.png",
-                "title": "2048"
-            },
-            {
-                "image": "https://holarse.de/sites/default/files/2014-08-23-1294/2048_1.png",
-                "title": "2048"
-            },
-            {
-                "image": "https://holarse.de/sites/default/files/2014-08-23-1294/2048_1.png",
-                "title": "2048"
-            },
-            {
-                "image": "https://holarse.de/sites/default/files/2014-08-23-1294/2048_1.png",
-                "title": "2048"
-            },
-            {
-                "image": "https://holarse.de/sites/default/files/2014-08-23-1294/2048_1.png",
-                "title": "2048"
-            },
-        ]
     },
     methods: {
-        displayGamesDetails() {
-
+        redirectUrl(id) {
+            this.$router.push(`/gameDetails/${id}`)
         }
     },
 };
