@@ -5,7 +5,8 @@
             <div class="game-card" v-for="game in games" v-bind:key="game.id">
                 <router-link :to="`/gameDetails/${game.id}`">
                     <img v-bind:src="game.image" height="150" width="150">
-                    <h3>{{ game.title }}</h3>
+                    <h3>{{ game.name }}</h3>
+                    <p class="game-description">{{game.description}}</p>
                 </router-link>
             </div>
         </div>
@@ -29,10 +30,6 @@ export default {
 
         axios.get(`${this.apiUrl}/games`).then((response) => {
             this.games = response.data
-            this.games = [{
-                "image": "https://holarse.de/sites/default/files/2014-08-23-1294/2048_1.png",
-                "title": "2048"
-            }]
         })
         this.games = [
             {
@@ -103,12 +100,16 @@ export default {
     align-items: center;
     justify-content: space-evenly;
 }
-
+.game-description {
+    color: grey;
+    font-size: 12px;
+    margin-top: 10px;
+}
 .game-card {
     background-color: #2b2d42;
-    padding: 5px;
-    padding-top: 10px;
+    padding: 20px;
     text-align: center;
+    border-radius: 20px;
     height: 300px;
     width: 20%;
     margin-bottom: 20px;

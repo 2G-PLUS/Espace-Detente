@@ -1,6 +1,6 @@
 <template>
     <div id="app">
-        <header class="header-container">
+        <header v-on:click="redirectGame" class="header-container">
             <img src="./assets/2g.png" height="75" >
         </header>
         <main>
@@ -19,6 +19,11 @@ export default {
     name: 'App',
     components: {
         SidebarMenu,
+    },
+    methods: {
+        redirectGame() {
+            this.$router.push({ name: 'Games' });
+        },
     },
 };
 </script>
@@ -44,6 +49,7 @@ header {
     background-color: #2b2d42;
     padding: 20px;
     text-align: center;
+    cursor: pointer;
 }
 
 .content {

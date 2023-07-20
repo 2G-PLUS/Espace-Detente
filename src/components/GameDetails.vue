@@ -2,7 +2,7 @@
     <div class="game-details">
         <div class="iframe-container">
             <iframe
-                v-bind:src="game.link"
+                v-bind:src="game?.link"
                 frameborder="0"
                 allowfullscreen
             ></iframe>
@@ -25,13 +25,8 @@ export default {
         axios.defaults.headers.post['Access-Control-Allow-Origin'] = '*';
 
         console.log(this.$route.params.id);
-        this.game = { "id": 1, link: "https://play2048.co/"}
-        axios.get(`${this.apiUrl}/games`).then((response) => {
-            this.games = response.data
-            this.games = [{
-                "image": "https://holarse.de/sites/default/files/2014-08-23-1294/2048_1.png",
-                "title": "2048"
-            }]
+        axios.get(`${this.apiUrl}/games/${this.$route.params.id}`).then((response) => {
+            this.game = response.data
         })
     },
     methods: {},
