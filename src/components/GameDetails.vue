@@ -24,7 +24,6 @@ export default {
     created() {
         axios.defaults.headers.post['Access-Control-Allow-Origin'] = '*';
 
-        console.log(this.$route.params.id);
         axios.get(`${this.apiUrl}/games/${this.$route.params.id}`).then((response) => {
             this.game = response.data
         })
